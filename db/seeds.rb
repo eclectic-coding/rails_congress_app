@@ -81,10 +81,10 @@ representatives.each do |representative|
     )
 end
 
-# Member.calculate_age
-# Member.social_media_links
-# Member.full_state_name
-# Member.full_party_name
-# Member.clickable_phone_number
-# Member.set_full_name
-# Member.set_title_and_name
+Member.calculate_age
+Member.social_media_links
+Member.full_state_name
+Member.full_party_name
+Member.clickable_phone_number
+Member.set_full_name
+Member.set_title_and_name
