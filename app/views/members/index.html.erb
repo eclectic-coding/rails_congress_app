@@ -1,12 +1,10 @@
 <% provide(:title, 'Home') %>
-<% require 'pry' %>
 <h1>Members</h1>
 <p>below find you congress</p>
 
 <h2>Senate</h2>
 <ul>
-  <% binding.pry %>
-  <% if @members.chamber == 'senate' %>
-      <li><%= member.full_name %></li>
+  <% @senators.each do |member| %>
+      <li><%= member.title_and_name %> - (<%= member.state %>)</li>
   <% end %>
 </ul>
