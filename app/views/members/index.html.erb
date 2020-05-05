@@ -2,7 +2,7 @@
 <h1>Members</h1>
 <p>below find you congress</p>
 
-<h2>Senate</h2>
+<h2>Senate (<%= @senators.count %>)</h2>
 <ul>
   <% @senators.each do |member| %>
       <li><%= member.title_and_name %> - (<%= member.state %>)</li>

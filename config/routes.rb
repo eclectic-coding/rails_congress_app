@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'members#index'
 
   # Members resource
-  resources :members, only: %i[index show]
+  resources :members
 
   # Senate resources
   resources :senate, only: [:index]

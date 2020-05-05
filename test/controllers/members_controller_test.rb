@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class MembersControllerTest < ActionDispatch::IntegrationTest
+  fixtures :members
 
   def setup
     @base_title = 'Your Congress'
@@ -13,8 +14,10 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get members_show_url
+    member = members(:pete)
+    get member_url(member)
     assert_response :success
+    assert_select 'title', "Member Details | #{@base_title}"
   end
 
 end

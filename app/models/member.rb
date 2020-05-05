@@ -106,10 +106,10 @@ class Member < ApplicationRecord
     Member.all.each do |member|
       if member.party == 'D'
         member.update(party_full_name: 'Democrat')
-        elsif member.party == 'R'
-          member.update(party_full_name: 'Republican')
-          elsif member.party == 'ID'
-            member.update(party_full_name: 'Independent')
+      elsif member.party == 'R'
+        member.update(party_full_name: 'Republican')
+      elsif member.party == 'ID'
+        member.update(party_full_name: 'Independent')
       end
     end
   end
