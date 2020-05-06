@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  root 'members#index'
+  root 'static_pages#home'
 
   # Members resource
   resources :members
-
-  # Senate resources
-  resources :senate, only: [:index]
 
 end
