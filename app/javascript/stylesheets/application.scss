@@ -1,0 +1,11 @@
+@import "~tailwindcss/base";
+@import "~tailwindcss/components";
+
+.container__debug {
+  @apply bg-gray-300 shadow;
+  @apply p-4 m-4;
+  width: 50%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+@import "~tailwindcss/utilities";
