@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+      = yield(:title)
+      | Your Congress
+    = csrf_meta_tags
+    = csp_meta_tag
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css", rel: "stylesheet", integrity: "sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1", crossorigin: "anonymous"}
+    %link{href: "https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap",
+    rel: "stylesheet"}
+    = stylesheet_pack_tag 'application'
+    = javascript_pack_tag 'application'
+  %body.m-0.font-sans
+    = yield
+    .container__debug
+      = debug(params) if Rails.env.development?
