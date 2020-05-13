@@ -1,5 +1,6 @@
-class Member < ApplicationRecord
+# frozen_string_literal: true
 
+class Member < ApplicationRecord
   def self.calculate_age
     Member.all.each do |member|
       now = Time.now.utc.to_date
@@ -13,87 +14,97 @@ class Member < ApplicationRecord
 
   def self.social_media_links
     Member.all.each do |member|
-
       if member.facebook_account
         fb_path = 'https://www.facebook.com/'
         fb_account = member.facebook_account
         fb_page = fb_path + fb_account.to_s
-        member.update(facebook_account: fb_page)
+        if Faraday.head(member.facebook_account).status == 200
+          member.update(facebook_account: fb_page)
+        else
+          member.update(facebook_account: nil)
+        end
       end
 
       if member.twitter_account
         twitter_path = 'https://www.twitter.com/'
         twitter_account = member.twitter_account
         twitter_page = twitter_path + twitter_account.to_s
-        member.update(twitter_account: twitter_page)
+        if Faraday.head(member.twitter_account).status == 200
+          member.update(twitter_account: twitter_page)
+        else
+          member.update(twitter_account: nil)
+        end
       end
 
-      if member.youtube_account
-        youtube_path = 'https://www.youtube.com/user'
-        youtube_account = member.youtube_account
-        youtube_page = youtube_path + youtube_account.to_s
+      next unless member.youtube_account
+
+      youtube_path = 'https://www.youtube.com/user/'
+      youtube_account = member.youtube_account
+      youtube_page = youtube_path + youtube_account.to_s
+      if Faraday.head(member.youtube_account).status == 200
         member.update(youtube_account: youtube_page)
+      else
+        member.update(youtube_account: nil)
       end
-
     end
   end
 
   def self.full_state_name
-    states = [['AK', 'Alaska'],
-              ['AL', 'Alabama'],
-              ['AR', 'Arkansas'],
+    states = [%w[AK Alaska],
+              %w[AL Alabama],
+              %w[AR Arkansas],
               ['AS', 'American Samoa'],
-              ['AZ', 'Arizona'],
-              ['CA', 'California'],
-              ['CO', 'Colorado'],
-              ['CT', 'Connecticut'],
+              %w[AZ Arizona],
+              %w[CA California],
+              %w[CO Colorado],
+              %w[CT Connecticut],
               ['DC', 'District of Columbia'],
-              ['DE', 'Delaware'],
-              ['FL', 'Florida'],
-              ['GA', 'Georgia'],
-              ['GU', 'Guam'],
-              ['HI', 'Hawaii'],
-              ['IA', 'Iowa'],
-              ['ID', 'Idaho'],
-              ['IL', 'Illinois'],
-              ['IN', 'Indiana'],
-              ['KS', 'Kansas'],
-              ['KY', 'Kentucky'],
-              ['LA', 'Louisiana'],
-              ['MA', 'Massachusetts'],
-              ['MD', 'Maryland'],
-              ['ME', 'Maine'],
-              ['MI', 'Michigan'],
-              ['MN', 'Minnesota'],
-              ['MO', 'Missouri'],
-              ['MS', 'Mississippi'],
-              ['MT', 'Montana'],
+              %w[DE Delaware],
+              %w[FL Florida],
+              %w[GA Georgia],
+              %w[GU Guam],
+              %w[HI Hawaii],
+              %w[IA Iowa],
+              %w[ID Idaho],
+              %w[IL Illinois],
+              %w[IN Indiana],
+              %w[KS Kansas],
+              %w[KY Kentucky],
+              %w[LA Louisiana],
+              %w[MA Massachusetts],
+              %w[MD Maryland],
+              %w[ME Maine],
+              %w[MI Michigan],
+              %w[MN Minnesota],
+              %w[MO Missouri],
+              %w[MS Mississippi],
+              %w[MT Montana],
               ['NC', 'North Carolina'],
               ['ND', 'North Dakota'],
-              ['NE', 'Nebraska'],
+              %w[NE Nebraska],
               ['NH', 'New Hampshire'],
               ['NJ', 'New Jersey'],
               ['NM', 'New Mexico'],
-              ['NV', 'Nevada'],
+              %w[NV Nevada],
               ['NY', 'New York'],
-              ['OH', 'Ohio'],
-              ['OK', 'Oklahoma'],
-              ['OR', 'Oregon'],
-              ['PA', 'Pennsylvania'],
+              %w[OH Ohio],
+              %w[OK Oklahoma],
+              %w[OR Oregon],
+              %w[PA Pennsylvania],
               ['PR', 'Puerto Rico'],
               ['RI', 'Rhode Island'],
               ['SC', 'South Carolina'],
               ['SD', 'South Dakota'],
-              ['TN', 'Tennessee'],
-              ['TX', 'Texas'],
-              ['UT', 'Utah'],
-              ['VA', 'Virginia'],
+              %w[TN Tennessee],
+              %w[TX Texas],
+              %w[UT Utah],
+              %w[VA Virginia],
               ['VI', 'Virgin Islands'],
-              ['VT', 'Vermont'],
-              ['WA', 'Washington'],
-              ['WI', 'Wisconsin'],
+              %w[VT Vermont],
+              %w[WA Washington],
+              %w[WI Wisconsin],
               ['WV', 'West Virginia'],
-              ['WY', 'Wyoming']]
+              %w[WY Wyoming]]
 
     Member.all.each do |member|
       states.each do |state|
@@ -131,5 +142,4 @@ class Member < ApplicationRecord
       member.update(title_and_name: member.short_title + ' ' + member.full_name)
     end
   end
-
 end
