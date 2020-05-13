@@ -1,6 +1,5 @@
-# frozen_string_literal: true
-
 class Member < ApplicationRecord
+
   def self.calculate_age
     Member.all.each do |member|
       now = Time.now.utc.to_date
@@ -18,22 +17,14 @@ class Member < ApplicationRecord
         fb_path = 'https://www.facebook.com/'
         fb_account = member.facebook_account
         fb_page = fb_path + fb_account.to_s
-        if Faraday.head(member.facebook_account).status == 200
-          member.update(facebook_account: fb_page)
-        else
-          member.update(facebook_account: nil)
-        end
+        member.update(facebook_account: fb_page)
       end
 
       if member.twitter_account
         twitter_path = 'https://www.twitter.com/'
         twitter_account = member.twitter_account
         twitter_page = twitter_path + twitter_account.to_s
-        if Faraday.head(member.twitter_account).status == 200
-          member.update(twitter_account: twitter_page)
-        else
-          member.update(twitter_account: nil)
-        end
+        member.update(twitter_account: twitter_page)
       end
 
       next unless member.youtube_account
@@ -41,11 +32,7 @@ class Member < ApplicationRecord
       youtube_path = 'https://www.youtube.com/user/'
       youtube_account = member.youtube_account
       youtube_page = youtube_path + youtube_account.to_s
-      if Faraday.head(member.youtube_account).status == 200
-        member.update(youtube_account: youtube_page)
-      else
-        member.update(youtube_account: nil)
-      end
+      member.update(youtube_account: youtube_page)
     end
   end
 
@@ -140,6 +127,14 @@ class Member < ApplicationRecord
   def self.set_title_and_name
     Member.all.each do |member|
       member.update(title_and_name: member.short_title + ' ' + member.full_name)
+    end
+  end
+
+  def self.test_url(url)
+    if Faraday.head(url).status == 200
+      url
+    else
+      url = nil
     end
   end
 end

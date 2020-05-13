@@ -1,16 +1,28 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 
-.container__debug {
-  @apply bg-gray-300 shadow;
-  @apply p-4 m-4;
-  width: 50%;
-  border-radius: 10px;
-  overflow: hidden;
+.debug_dump {
+  @apply bg-gray-300 shadow rounded overflow-hidden;
+  @apply p-4 m-5;
+
 }
 
 .icon {
   color: gray;
   text-decoration: none;
+}
+
+.pagination {
+  @apply flex justify-center;
+  @apply my-2;
+}
+
+.pagination * {
+  @apply mx-1 px-3 py-2;
+  @apply bg-white text-gray-700 no-underline rounded-lg;
+}
+
+.pagination a:hover {
+  @apply text-gray-200 font-semibold bg-gray-700;
 }
 @import "~tailwindcss/utilities";
