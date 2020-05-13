@@ -37,7 +37,7 @@ senators.each do |senator|
     state_full_name: senator['state_full_name'],
     missed_votes_pct: senator['missed_votes_pct'],
     votes_with_party_pct: senator['votes_with_party_pct'],
-    )
+  )
 end
 
 # house members
@@ -78,7 +78,7 @@ representatives.each do |representative|
     state_full_name: representative['state_full_name'],
     missed_votes_pct: representative['missed_votes_pct'],
     votes_with_party_pct: representative['votes_with_party_pct'],
-    )
+  )
 end
 
 Member.calculate_age

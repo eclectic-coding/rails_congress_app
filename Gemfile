@@ -6,6 +6,7 @@ ruby '2.7.1'
 gem 'faraday'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.7'
+gem 'material_design_icons'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
@@ -41,3 +42,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "font-awesome-rails", "~> 4.7"

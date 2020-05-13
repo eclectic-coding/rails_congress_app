@@ -1,9 +1,36 @@
-%h1 Senators#index
+%h1 Senators#index (#{@senators.count})
 %p Find me in app/views/senators/index.html.erb
-%h2
-  Senate (#{@senators.count})
-%ul
-  - @senators.each do |member|
-    %li
-      = member.title_and_name
-      \- (#{member.state})
+%div{ class: "container mx-auto" }
+  %ul{ class: "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4" }
+    - @senators.each do |member|
+      %li.list-none
+        .max-w-sm.rounded-lg.overflow-hidden.shadow-lg.bg-white.m-4
+          .flex.flex-col
+            %img{class: "w-full", src: "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", width: "auto"}
+            .text-xl.text-center
+              = member.title_and_name
+            .text-gray-700.text-base.text-center
+              #{member.party_full_name} - #{member.state}
+            .text-gray-700.text-base.p-5
+              Age: #{member.age}
+              %br Years in Office: #{member.seniority}
+              Next Election: #{member.next_election}
+            .px-5.py-3.border-t.bg-gray-200.flex.justify-around
+              - if !member.facebook_account.nil?
+                = link_to member.facebook_account do
+                  %i.mdi.mdi-facebook.mdi-36px.icon{ "aria-hidden": "true" }
+              - if !member.twitter_account.nil?
+                = link_to member.twitter_account do
+                  %i.mdi.mdi-twitter.mdi-36px.icon{ "aria-true": "true" }
+              - if !member.youtube_account.nil?
+                = link_to member.youtube_account do
+                  %i.mdi.mdi-youtube.mdi-36px.icon{ "aria-true": "true" }
+              - if !member.website.nil?
+                = link_to member.website do
+                  %i.mdi.mdi-home-analytics.mdi-36px.icon{ "aria-true": "true" }
+              - if !member.contact_form.nil?
+                = link_to member.contact_form do
+                  %i.mdi.mdi-map-marker.mdi-36px.icon{ "aria-true": "true" }
+              - if !member.phone_clickable.nil?
+                %a{href: "tel:#{member.phone_clickable}", alt: "Call us"}
+                  %i.mdi.mdi-phone.mdi-36px.icon{ "aria-true": "true" }
