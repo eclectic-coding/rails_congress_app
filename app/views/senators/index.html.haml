@@ -18,21 +18,21 @@
             .px-5.py-3.border-t.bg-gray-200.flex.justify-around
               - if !member.facebook_account.nil?
                 = link_to member.facebook_account do
-                  %i.fab.fa-facebook.text-xl.icon{ "aria-hidden": "true" }
+                  %i.fab.fa-facebook.icon{ "aria-hidden": "true" }
               - if !member.twitter_account.nil?
                 = link_to member.twitter_account do
-                  %i.fab.fa-twitter.text-xl.icon{ "aria-true": "true" }
+                  %i.fab.fa-twitter.icon{ "aria-true": "true" }
               - if !member.youtube_account.nil?
                 = link_to member.youtube_account do
-                  %i.fab.fa-youtube.text-xl.icon{ "aria-true": "true" }
+                  %i.fab.fa-youtube.icon{ "aria-true": "true" }
               - if !member.website.nil?
                 = link_to member.website do
-                  %i.fas.fa-home.text-xl.icon{ "aria-true": "true" }
+                  %i.fas.fa-home.icon{ "aria-true": "true" }
               - if !member.contact_form.nil?
                 = link_to member.contact_form do
-                  %i.fas.fa-envelope-open.text-xl.icon{ "aria-true": "true" }
+                  %i.fas.fa-envelope-open.icon{ "aria-true": "true" }
               - if !member.phone_clickable.nil?
                 %a{href: "tel:#{member.phone_clickable}", alt: "Call us"}
-                  %i.fas.fa-phone-volume.text-xl.icon{ "aria-true": "true" }
+                  %i.fas.fa-phone-volume.icon{ "aria-true": "true" }
   .mx-auto
     = will_paginate

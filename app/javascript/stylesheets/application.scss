@@ -8,8 +8,8 @@
 }
 
 .icon {
-  color: gray;
-  text-decoration: none;
+  @apply text-gray-500 text-xl;
+  @apply no-underline;
 }
 
 .icon:hover,
