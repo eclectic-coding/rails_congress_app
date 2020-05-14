@@ -5,5 +5,6 @@ class SenatorsController < ApplicationController
   end
 
   def show
+    @senator = Member.where(chamber: 'senate', id: params[:id])
   end
 end

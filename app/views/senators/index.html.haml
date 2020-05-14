@@ -5,8 +5,9 @@
       %div
         .max-w-sm.rounded-lg.overflow-hidden.shadow-lg.bg-white.m-4
           .flex.flex-col
-            %img{class: "w-full", src: "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", width: "auto"}
-            .text-xl.text-center
+            = link_to senator_path(member.member_id) do
+              =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", class: "w-full"
+            .text-xl.text-center.no-underline
               = member.title_and_name
             .text-gray-700.text-base.text-center
               #{member.party_full_name} - #{member.state}
