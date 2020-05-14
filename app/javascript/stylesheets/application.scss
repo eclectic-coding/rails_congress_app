@@ -1,15 +1,20 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
+@import '~@fortawesome/fontawesome-free';
 
 .debug_dump {
   @apply bg-gray-300 shadow rounded overflow-hidden;
   @apply p-4 m-5;
-
 }
 
 .icon {
   color: gray;
   text-decoration: none;
+}
+
+.icon:hover,
+.icon:focus {
+  @apply text-blue-300;
 }
 
 .pagination {

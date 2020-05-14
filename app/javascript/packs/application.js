@@ -10,6 +10,8 @@ require("channels")
 // require("jquery")
 require("../stylesheets/application.scss")
 
+import "@fortawesome/fontawesome-free/js/all"
+
 // Start StimulusJS
 import { Application } from "stimulus"
 import { definitionsFromContext } from "stimulus/webpack-helpers"
