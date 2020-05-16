@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-// require("jquery")
+
 require("../stylesheets/application.scss")
 
 import "@fortawesome/fontawesome-free/js/all"
@@ -23,8 +23,8 @@ application.load(definitionsFromContext(context));
 // Import and register all TailwindCSS Components
 import { Dropdown } from "tailwindcss-stimulus-components"
 application.register('dropdown', Dropdown)
-// application.register('modal', Modal)
-// application.register('tabs', Tabs)
-// application.register('popover', Popover)
-// application.register('toggle', Toggle)
+application.register('modal', Modal)
+application.register('tabs', Tabs)
+application.register('popover', Popover)
+application.register('toggle', Toggle)
 
