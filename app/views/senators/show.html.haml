@@ -1,2 +1,6 @@
 %h1 Senators#show
 %p Find me in app/views/senators/show.html.erb
+
+= image_tag "https://theunitedstates.io/images/congress/225x275/#{@senator.member_id}.jpg"
+= @senator.title_and_name
+#{@senator.party_full_name} - #{@senator.state}

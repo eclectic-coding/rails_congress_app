@@ -7,6 +7,6 @@
           .flex.flex-col
             = link_to senator_path(member.member_id) do
               =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", alt: "#{member.title_and_name} portrait.", class: "w-full"
-              = render member
-  .mx-auto
-    = will_paginate
+            = render member
+    .mx-auto
+      = will_paginate
