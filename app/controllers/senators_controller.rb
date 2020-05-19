@@ -1,4 +1,3 @@
-require 'pry'
 class SenatorsController < ApplicationController
   def index
     @senators = Member.where(chamber: 'senate')
@@ -8,6 +7,5 @@ class SenatorsController < ApplicationController
 
   def show
     @senator = Member.find_by_member_id(params[:id])
-    # binding.pry
   end
 end
