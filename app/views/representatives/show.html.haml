@@ -1,5 +1,49 @@
+.container.mx-auto.py-12.px-4
+  %div{class: "mx-auto max-w-sm lg:max-w-xl lg:flex bg-white rounded-lg border shadow-lg pb-6 lg:pb-0"}
+    %div{class: "w-full lg:w-1/3 lg:p-4"}
+      = image_tag "https://theunitedstates.io/images/congress/225x275/#{@representative.member_id}.jpg", class: "h-64 lg:h-full object-cover object-center w-full"
+    %div{class: "w-full lg:w-2/3 p-4"}
+      .inline-grid
+        %p.work-sans.font-semibold.text-xl
+          = @representative.title_and_name
+        %div.text-normal.text-sm.font-normal
+          #{@representative.party_full_name} - #{@representative.state}
+        .px-5.py-3.flex.justify-around
+          - if !@representative.facebook_account.nil?
+            = link_to @representative.facebook_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Facebook account." do
+              %i.fab.fa-facebook.icon{ "aria-hidden": true }
+          - if !@representative.twitter_account.nil?
+            = link_to @representative.twitter_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Twitter account." do
+              %i.fab.fa-twitter.icon{ "aria-hidden": true }
+          - if !@representative.youtube_account.nil?
+            = link_to @representative.youtube_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s YouTube account." do
+              %i.fab.fa-youtube.icon{ "aria-hidden": true }
+          - if !@representative.website.nil?
+            = link_to @representative.website, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s website link." do
+              %i.fas.fa-home.icon{ "aria-hidden": true }
+          - if !@representative.contact_form.nil?
+            = link_to @representative.contact_form, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s contact form." do
+              %i.fas.fa-envelope-open.icon{ "aria-hidden": true }
+          - if !@representative.phone_clickable.nil?
+            %a{href: "tel:#{@representative.phone_clickable}", "aria-label": "Call #{@representative.short_title} #{@representative.last_name}"}
+              %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
+        %p.raleway.text-sm.my-4
+          Age: #{@representative.age} &nbsp; Years in Office: #{@representative.seniority} &nbsp; Next Election: #{@representative.next_election}
+        %div
+          - if !@representative.district.nil?
+            District: #{@representative.district}
+        %p.font-bold
+          Voting Record
+        %p
+          %div
+            - if !@representative.missed_votes_pct.nil?
+              Missed Votes: #{@representative.missed_votes_pct} %
+          %div
+            - if !@representative.votes_with_party_pct.nil?
+              Votes with Party: #{@representative.votes_with_party_pct} %
 
-%h1 Representatives#show
-%p Find me in app/views/representatives/show.html.erb
+      %div{class: "mx-auto flex justify-center mt-8 rounded-b-lg max-w-xs lg:max-w-lg lg:mt-8 lg:justify-end lg:pr-8 py-1"}
+        %button{type: "button", class: "text-white py-3 px-4 rounded-lg bg-indigo-700"}
+          %p.work-sans.font-semibold.text-sm.tracking-wide.cursor-not-allowed
+            Add to Follow List
 
-= @representative

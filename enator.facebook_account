@@ -1,0 +1,40 @@
+=> [32m#<Member:0x00007f3d28134b08[0m
+ id: [1;34m1[0m,
+ chamber: [31m[1;31m"[0m[31msenate[1;31m"[0m[31m[0m,
+ member_id: [31m[1;31m"[0m[31mA000360[1;31m"[0m[31m[0m,
+ title: [31m[1;31m"[0m[31mSenator, 2nd Class[1;31m"[0m[31m[0m,
+ short_title: [31m[1;31m"[0m[31mSen.[1;31m"[0m[31m[0m,
+ first_name: [31m[1;31m"[0m[31mLamar[1;31m"[0m[31m[0m,
+ last_name: [31m[1;31m"[0m[31mAlexander[1;31m"[0m[31m[0m,
+ date_of_birth: [31m[1;31m"[0m[31m1940-07-03[1;31m"[0m[31m[0m,
+ gender: [31m[1;31m"[0m[31mM[1;31m"[0m[31m[0m,
+ party: [31m[1;31m"[0m[31mR[1;31m"[0m[31m[0m,
+ party_full_name: [31m[1;31m"[0m[31mRepublican[1;31m"[0m[31m[0m,
+ age: [1;34m79[0m,
+ twitter_account:
+  [31m[1;31m"[0m[31mhttps://www.twitter.com/SenAlexander[1;31m"[0m[31m[0m,
+ facebook_account:
+  [31m[1;31m"[0m[31mhttps://www.facebook.com/senatorlamaralexander[1;31m"[0m[31m[0m,
+ youtube_account:
+  [31m[1;31m"[0m[31mhttps://www.youtube.com/user/lamaralexander[1;31m"[0m[31m[0m,
+ website:
+  [31m[1;31m"[0m[31mhttps://www.alexander.senate.gov/public[1;31m"[0m[31m[0m,
+ contact_form:
+  [31m[1;31m"[0m[31mhttp://www.alexander.senate.gov/public/index.cfm?p=Email[1;31m"[0m[31m[0m,
+ seniority: [1;34m17[0m,
+ next_election: [31m[1;31m"[0m[31m2020[1;31m"[0m[31m[0m,
+ office: [31m[1;31m"[0m[31m455 Dirksen Senate Office Building[1;31m"[0m[31m[0m,
+ phone: [31m[1;31m"[0m[31m202-224-4944[1;31m"[0m[31m[0m,
+ phone_clickable: [31m[1;31m"[0m[31m2022244944[1;31m"[0m[31m[0m,
+ state: [31m[1;31m"[0m[31mTN[1;31m"[0m[31m[0m,
+ district: [1;36mnil[0m,
+ missed_votes_pct: [1;35m0.1767e2[0m,
+ votes_with_party_pct: [1;35m0.9621e2[0m,
+ created_at:
+  [1;34;4mWed[0m, [1;34m13[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m13[0m:[1;34m46[0m:[1;34m55[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ updated_at:
+  [1;34;4mWed[0m, [1;34m13[0m [1;34;4mMay[0m [1;34m2020[0m [1;34m13[0m:[1;34m51[0m:[1;34m44[0m [1;34;4mUTC[0m [1;34m+00[0m:[1;34m00[0m,
+ image_url: [31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+ state_full_name: [31m[1;31m"[0m[31mTennessee[1;31m"[0m[31m[0m,
+ full_name: [31m[1;31m"[0m[31mLamar Alexander[1;31m"[0m[31m[0m,
+ title_and_name: [31m[1;31m"[0m[31mSen. Lamar Alexander[1;31m"[0m[31m[0m[32m>[0m
