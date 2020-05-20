@@ -1,21 +1,11 @@
 !!!
 %html{:lang => "en", class:"h-full"}
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title
-      = yield(:title)
-      | Your Congress
-    = csrf_meta_tags
-    = csp_meta_tag
-    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
-    %link{href: "https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700;900&display=swap", rel: "stylesheet"}
-    = stylesheet_pack_tag 'application'
-    = javascript_pack_tag 'application'
+    = render 'shared/head'
   %body.font-sans.bg-gray-200
     = render 'shared/nav-test'
     %main{role: "main"}
       = yield
 
       = debug(params) if Rails.env.development?
-    %footer{role: "footer", class: "w-full text-center border-t border-grey p-4 pin-b"}
-      Footer
+    = render 'shared/footer'
