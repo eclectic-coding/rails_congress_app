@@ -2,15 +2,13 @@
   .flex.items-center.flex-no-shrink.text-indigo-700.mr-6
     %svg.fill-current.h-8.w-8.mr-2{:height => "54", :viewbox => "0 0 54 54", :width => "54", :xmlns => "http://www.w3.org/2000/svg"}
       %path{:d => "M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"}
-    %span.font-bold.text-xl.tracking-tight
-      = link_to root_path do
-        Your Congress
-  %div.text.gray-500
+    %span.font-bold.text-xl.tracking-tight Your Congress
+  .text.gray-500
     %div{ class: "relative inline-block px-4 py-2 leading-none rounded no-underline text-white hover:text-gray-700 hover:bg-white mt-0", "data-controller" => "dropdown"}
       .inline-block.select-none.rounded.text-white-500{"data-action" => "click->dropdown#toggle click@window->dropdown#hide", :role => "button"}
         %span{ class: "appearance-none flex items-center inline-block " }
           %i.fas.fa-hamburger.text-indigo-700.text-2xl
-      .absolute.right-0.mt-2.hidden{"data-target" => "dropdown.menu"}
+      .absolute.right-0.mt-2.hidden.transition.ease-out.duration-900{"data-target" => "dropdown.menu"}
         .border-solid.border-gray-100.bg-indigo-200.shadow.rounded.border.overflow-hidden.w-32
           = link_to 'House', representatives_path, class: "no-underline block pl-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-no-wrap"
           = link_to 'Senate', senators_path, class: "no-underline block pl-8 py-3 text-gray-900 bg-white hover:bg-gray-300 whitespace-no-wrap", disable: true
