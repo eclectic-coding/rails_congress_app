@@ -12,7 +12,7 @@ class SenatorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get senator_path(@senator[:id])
+    get senator_path(@senator[:member_id])
     assert_response :success
   end
 

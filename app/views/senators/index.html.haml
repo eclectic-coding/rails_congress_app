@@ -8,5 +8,5 @@
             = link_to senator_path(member.member_id), "aria-label": "Link to #{member.short_title} #{member.last_name}'s profile page." do
               =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", alt: "#{member.title_and_name} portrait.", class: "w-full"
             = render member
-    .mx-auto
-      = will_paginate
+  .mx-auto
+    = will_paginate

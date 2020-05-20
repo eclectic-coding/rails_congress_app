@@ -11,7 +11,7 @@ class RepresentativesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get show' do
-    get representative_path(@representative)
+    get representative_path(@representative[:member_id])
     assert_response :success
   end
 
