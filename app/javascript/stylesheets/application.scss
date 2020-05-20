@@ -33,11 +33,11 @@
 
 .pagination {
   @apply flex justify-center;
-  @apply my-2;
+  @apply my-2 py-2;
 }
 
 .pagination * {
-  @apply px-3 py-2 mx-1;
+  @apply px-3 py-2 mx-3;
   @apply text-gray-700 no-underline bg-white rounded-lg;
 }
 
