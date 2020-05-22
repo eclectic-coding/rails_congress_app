@@ -4,7 +4,7 @@
       %path{:d => "M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"}
     %span.font-bold.text-xl.text-indigo-700.tracking-tight
       %h1
-        Your Congress
+        = link_to 'Your Congress', root_path, {class: "hover:text-indigo-900"}
   %div{class: "block lg:hidden"}
     %button#sidebar-open{class: "flex px-6 items-center lg:hidden text-gray-500 focus:outline-none focus:text-gray-700", "data-action" => "click->toggle#toggle touch->toggle#toggle", :type => "button"}
       %span{ class: "appearance-none flex items-center inline-block " }
@@ -15,6 +15,13 @@
     %div{class: "text-sm"}
       = link_to 'House', representatives_path, {class: "block lg:inline-flex mr-5 px-3 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center hover:bg-gray-200"}
       = link_to 'Senate', senators_path, {class: "block lg:inline-flex sm: my-2 mr-5 px-2 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center hover:bg-gray-200"}
-      = link_to 'Log In', root_path, {class: "block lg:inline-flex mr-5 sm: mb-2 px-2 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center hover:bg-gray-200"}
-      %button{class: "bg-indigo-700 hover: bg-indigo-900 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"}
-        Sign Up
+      - if user_signed_in?
+        = link_to "Account", edit_user_registration_path, {class: "block lg:inline-flex sm: my-2 mr-5 px-2 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center hover:bg-gray-200"}
+        = link_to destroy_user_session_path, method: :delete, class: "block lg:inline-flex sm: my-2 mr-5 px-2 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center hover:bg-gray-200" do
+          %button{class: "bg-indigo-700 hover: bg-indigo-900 text-white font-bold py-2 px-4 rounded"}
+            Log Out
+      - else
+        = link_to "Log In", new_user_session_path, {class: "block lg:inline-flex mr-5 sm: mb-2 px-2 py-1 text-indigo-700 font-semibold leading-relaxed rounded text-gray-400 items-center justify-center"}
+        = link_to new_user_registration_path do
+          %button{class: "bg-indigo-700 hover:bg-indigo-900 text-white font-bold py-2 px-4"}
+            Sign Up
