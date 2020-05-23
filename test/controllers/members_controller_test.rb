@@ -4,7 +4,7 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
   fixtures :members
 
   def setup
-    @base_title = 'Your Congress'
+    @member = members(:pete)
   end
 
   test 'should get members index at root path' do
