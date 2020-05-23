@@ -2,9 +2,9 @@
 %html{:lang => "en", class:"h-full"}
   %head
     = render 'shared/head'
-  %body.font-sans.bg-gray-200
+  %body.font-sans.bg-gray-200.flex.flex-col.h-full
     = render 'shared/nav-test'
-    %main{role: "main"}
+    %main{role: "main", class: "flex-1"}
       = yield
 
       = debug(params) if Rails.env.development?
