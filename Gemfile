@@ -3,10 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 
-gem 'devise', '~> 4.7'
-gem 'devise-tailwinded', '~> 0.1.5'
 gem 'faraday'
-gem 'font-awesome-rails', '~> 4.7'
+gem "font-awesome-rails", "~> 4.7"
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'material_design_icons'
@@ -14,7 +12,6 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 gem 'sass-rails', '>= 6'
-gem 'sendgrid-ruby', '~> 6.2'
 gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 gem 'will_paginate'
@@ -50,6 +47,4 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-
 
