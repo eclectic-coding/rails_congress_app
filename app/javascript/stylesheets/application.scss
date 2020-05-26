@@ -54,10 +54,10 @@ small, .text-small {
 }
 
 .btn-primary {
-  @apply bg-green-500;
+  @apply bg-indigo-700;
 
   &:hover {
-    @apply bg-green-700;
+    @apply bg-indigo-500;
   }
 }
 
@@ -88,6 +88,18 @@ small, .text-small {
 
 .pagination a:hover {
   @apply font-semibold text-gray-200 bg-gray-700;
+}
+
+.alert__success {
+  @apply bg-teal-100 border-teal-500 text-teal-900;
+}
+
+.alert__warning {
+  @apply bg-orange-100 border-orange-500 text-orange-900;
+}
+
+.alert__danger {
+  @apply bg-red-100 border-red-500 text-red-900;
 }
 
 .nav-link {

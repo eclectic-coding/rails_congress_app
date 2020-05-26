@@ -5,6 +5,12 @@
   %body.font-sans.bg-gray-200.flex.flex-col.h-full
     = render 'shared/nav-test'
     %main{role: "main", class: "flex-1"}
+      - flash.each do |message_type, message|
+        %div{class: "border-t-4 rounded-b px-4 py-3 shadow-md alert__#{message_type}", role:"alert"}
+          .flex
+            %div.mx-auto
+              %p.font-bold
+                #{message}
       = yield
 
       = debug(params) if Rails.env.development?
