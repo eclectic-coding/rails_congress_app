@@ -1,2 +1,9 @@
-%footer{class: "w-full text-center border-t border-grey p-4"}
-  Footer
+%footer{class: "w-full text-center p-4 bg-gray-800"}
+  .container.mx-auto.flex.justify-between
+    %span.text-gray-500
+      &copy;
+      = Date.today.year
+      yourcongress.co
+    %div.inline-flex
+      %a{href: "#", class: "block inline-flex text-gray-500 px-3"} Privacy Policy
+      %a{href: "#", class: "block inline-flex text-gray-500 px-3"} Terms & Conditions
