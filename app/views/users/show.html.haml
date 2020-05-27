@@ -1,11 +1,14 @@
 - provide(:title, @user.name)
 
-%div.container.mx-auto.flex
-  %aside
-    %section.user_info
-      %h1
-        = gravatar_for @user
-        = @user.name
+%div{class:"container mx-auto mt-8"}
+  %div
+    = gravatar_for @user
+    %h1
+      = @user.name
+    %p
+      some randome text
+
+
 %br
 %br
 %br
