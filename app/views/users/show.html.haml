@@ -7,7 +7,7 @@
       %h1
         = @user.name
       %p
-        Profile links
+        = link_to 'Edit profile', edit_user_path(current_user), class: ""
   .py-8
     %div.text-center
       %h2.text-2xl.font-semibold.leading-tight My Follow List

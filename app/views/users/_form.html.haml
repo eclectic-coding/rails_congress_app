@@ -1,0 +1,15 @@
+= form_with(model: @user, local: true) do |f|
+  = f.label :name, {class: "block text-grey-darker text-sm font-bold mb-2"}
+  = f.text_field :name, {class: "shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-grey-darker"}
+
+  = f.label :email, {class: "block text-grey-darker text-sm font-bold mb-2 "}
+  = f.email_field :email, {class: "shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-grey-darker"}
+
+  = f.label :password, {class: "block text-grey-darker text-sm font-bold mb-2"}
+  = f.password_field :password, {class: "shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-grey-darker"}
+
+  = f.label :password_confirmation, "Password Confirmation",  {class: "block text-grey-darker text-sm font-bold mb-2"}
+  = f.password_field :password_confirmation, {class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"}
+
+  = f.submit "Save changes", class: "btn btn-primary m-4"
+  = link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }
