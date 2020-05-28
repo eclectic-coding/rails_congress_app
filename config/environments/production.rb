@@ -10,8 +10,8 @@ Rails.application.configure do
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
-    user_name: Rails.application.credentials.dig(:sendgrid_username),
-    password: Rails.application.credentials.dig(:sendgrid_password)
+    user_name: 'apikey',
+    password: Rails.application.credentials.dig(:sendgrid_api_key)
     # enable_starttls_auto: true
   }
   # Eager load code on boot. This eager loads most of Rails and
