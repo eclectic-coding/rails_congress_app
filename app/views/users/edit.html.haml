@@ -1,10 +1,11 @@
 %div{class: "container mx-auto p-5 sm:w-full md:w-4/5 lg:w-3/5 xl:w-1/2"}
-  %h1.text-center.mb-3 Sign up
+  %h1.text-center.mb-3 Edit Your Account
   .bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col
     .mb-4
       = render 'users/form'
+
       .flex
         .gravatar_edit
           = gravatar_for @user
-          %a{href: "https://gravatar.com/emails", target: "_blank"}
-            change
+          %a{href: "https://gravatar.com/emails", target: "_blank", rel: "noopener noreferrer"}
+            Change Gravatar

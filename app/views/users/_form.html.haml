@@ -12,4 +12,5 @@
   = f.password_field :password_confirmation, {class: "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"}
 
   = f.submit "Save changes", class: "btn btn-primary m-4"
-  = link_to 'Delete', @user, method: :delete, data: { confirm: 'Are you sure?' }
+  - if current_user
+    = link_to 'Delete your account', @user, method: :delete, class: "btn bg-transparent hover:bg-red-700 text-indigo-700 hover:text-white border border-indigo-700 hover:border-transparent m-4", data: { confirm: 'Are you sure?' }
