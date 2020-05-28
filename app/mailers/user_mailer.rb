@@ -20,4 +20,8 @@ class UserMailer < ApplicationMailer
 
     mail to: 'to@example.org'
   end
+
+  def welcome
+    mail(to: 'chuck.smith08@gmail.com', subject: 'Welcome test')
+  end
 end
