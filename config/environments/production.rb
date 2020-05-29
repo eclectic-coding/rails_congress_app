@@ -1,18 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # host = 'salty-forest-30498.herokuapp.com'
-  host = 'yourcongress.co'
+  host = 'salty-forest-30498.herokuapp.com'
   config.action_mailer.default_url_options = { host: host }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.smtp_settings = {
-    user_name: 'apikey',
-    password: Rails.application.credentials[:sendgrid_api_key]
     domain: 'yourcongress.co',
     address: 'smtp.sendgrid.net',
     port: 587,
     authentication: :plain,
+    user_name: 'apikey',
+    password: Rails.application.credentials.dig(:sendgrid_api_key)
     enable_starttls_auto: true
   }
   # Eager load code on boot. This eager loads most of Rails and
