@@ -22,6 +22,6 @@ class UserMailer < ApplicationMailer
   end
 
   def welcome
-    mail(to: 'chuck.smith08@gmail.com', subject: 'Welcome test')
+    mail(to: 'chuck@eclecticsaddlebag.com', subject: 'Welcome test')
   end
 end
