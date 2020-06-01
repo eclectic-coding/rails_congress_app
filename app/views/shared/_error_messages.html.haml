@@ -1,0 +1,7 @@
+- if @user.errors.any?
+  #error_explanation
+    .px-4.py-3.bg-red-200.rounded.mb-1
+      The form contains #{pluralize(@user.errors.count, "error")}.
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg

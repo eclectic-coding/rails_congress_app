@@ -1,0 +1,17 @@
+%div{class: "container mx-auto p-5 sm:w-full md:w-4/5 lg:w-3/5 xl:w-1/2"}
+  %h1.text-center.mb-3 Reset password
+  .bg-white.shadow-md.rounded.px-8.pt-6.pb-8.mb-4.flex.flex-col
+    .mb-4
+      = form_with(model: @user, url: password_reset_path(params[:id]), local: true) do |f|
+        = render 'shared/error_messages', object: f.object
+
+        = hidden_field_tag :email, @user.email
+
+        = f.label :password, {class: "block text-grey-darker text-sm font-bold mb-2 "}
+        = f.password_field :password, {class: "shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-grey-darker"}
+
+        = f.label :password_confirmation, {class: "block text-grey-darker text-sm font-bold mb-2 "}
+        = f.password_field :password_confirmation, {class: "shadow appearance-none border rounded w-full mb-2 py-2 px-3 text-grey-darker"}
+
+
+        = f.submit "Update password", class: "btn btn-primary m-4"
