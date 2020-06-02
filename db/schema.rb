@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_01_183217) do
+ActiveRecord::Schema.define(version: 2020_06_02_185837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follow_lists", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "member_id", null: false
+    t.text "mem_id"
+    t.text "full_name"
+    t.text "state"
+    t.text "party"
+    t.string "chamber"
+    t.index ["member_id"], name: "index_follow_lists_on_member_id"
+    t.index ["user_id"], name: "index_follow_lists_on_user_id"
+  end
 
   create_table "members", force: :cascade do |t|
     t.string "chamber"
@@ -65,4 +77,6 @@ ActiveRecord::Schema.define(version: 2020_06_01_183217) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "follow_lists", "members"
+  add_foreign_key "follow_lists", "users"
 end

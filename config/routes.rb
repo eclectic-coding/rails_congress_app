@@ -6,11 +6,19 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  resources :users
+  resources :users do
+    resources :follow_lists
+  end
+
+  # User validation resources
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new edit create update]
+
+  # Congress resources
   resources :members, only: %i[index show]
   resources :senators, only: %i[index show]
   resources :representatives, only: %i[index show]
+
+  resources :follow_lists
 
 end

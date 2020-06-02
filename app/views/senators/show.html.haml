@@ -44,6 +44,6 @@
 
       %div{class: "mx-auto flex justify-center mt-8 rounded-b-lg max-w-xs lg:max-w-lg lg:mt-8 lg:justify-end lg:pr-8 py-1"}
         %button{type: "button", class: "text-white py-3 px-4 rounded-lg bg-indigo-700"}
-          %p.work-sans.font-semibold.text-sm.tracking-wide.cursor-not-allowed
-            Add to Follow List
+          %p.work-sans.font-semibold.text-sm.tracking-wide
+            =link_to 'Add to Follow List', edit_user_follow_list_path(member_id: @member, user_id: current_user[:id])
 
