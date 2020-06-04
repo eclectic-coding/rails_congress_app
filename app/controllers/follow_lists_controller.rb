@@ -6,13 +6,14 @@ class FollowListsController < ApplicationController
   end
 
   def edit
-    @member = Member.find_by(params[:member_id])
-    @follow_list = FollowList.find_by_member_id(params[:id])
+    @member = Member.find_by_member_id(params[:id])
+    @follow_list = FollowList.find_by_mem_id(params[:id])
 
     if @follow_list.nil?
       @follow_list = FollowList.new do |m|
         m.user_id = current_user['id']
         m.member_id = @member['id']
+        m.mem_id = @member['member_id']
         m.mem_id = @member['member_id']
         m.full_name = @member['full_name']
         m.chamber = @member['chamber']
@@ -22,8 +23,9 @@ class FollowListsController < ApplicationController
       @follow_list.save!
       flash[:success] = 'Your selection has been added to your Follow List.'
     else
-      flash[:danger] = 'Sorry, it did not work'
+      flash[:info] = 'All ready on your list.'
     end
+    redirect_to user_path(current_user[:id])
   end
 
   def create
