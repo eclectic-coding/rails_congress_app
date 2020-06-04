@@ -16,6 +16,8 @@ class FollowListsController < ApplicationController
         m.mem_id = @member['member_id']
         m.mem_id = @member['member_id']
         m.full_name = @member['full_name']
+        m.last_name = @member['last_name']
+        m.short_title = @member['short_title']
         m.chamber = @member['chamber']
         m.state = @member['state']
         m.party = @member['party']

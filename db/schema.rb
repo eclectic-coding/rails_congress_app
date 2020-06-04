@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_185837) do
+ActiveRecord::Schema.define(version: 2020_06_04_184612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2020_06_02_185837) do
     t.text "state"
     t.text "party"
     t.string "chamber"
+    t.string "short_title"
+    t.string "last_name"
     t.index ["member_id"], name: "index_follow_lists_on_member_id"
     t.index ["user_id"], name: "index_follow_lists_on_user_id"
   end
