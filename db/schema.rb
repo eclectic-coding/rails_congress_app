@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_06_04_184612) do
   enable_extension "plpgsql"
 
   create_table "follow_lists", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "member_id", null: false
+    t.bigint "user_id"
+    t.bigint "member_id"
     t.text "mem_id"
     t.text "full_name"
     t.text "state"
@@ -79,6 +79,4 @@ ActiveRecord::Schema.define(version: 2020_06_04_184612) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "follow_lists", "members"
-  add_foreign_key "follow_lists", "users"
 end

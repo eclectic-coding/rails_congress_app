@@ -4,6 +4,7 @@ chuck:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: Time.zone.now
+  id: 1
 
 paul:
   name: Paul Example
@@ -11,3 +12,4 @@ paul:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: Time.zone.now
+  id: 2
