@@ -8,4 +8,5 @@ class SenatorsController < ApplicationController
   def show
     @senator = Member.find_by_member_id(params[:id])
   end
+
 end

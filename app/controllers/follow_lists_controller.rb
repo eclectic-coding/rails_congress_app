@@ -39,7 +39,10 @@ class FollowListsController < ApplicationController
   end
 
   def destroy
-
+    @follow_list = FollowList.find_by_mem_id(params[:id])
+    @follow_list.destroy
+    flash[:success] = 'The Member of Congress has been removed from your follow list.'
+    redirect_to user_path(current_user[:id])
   end
 
 end
