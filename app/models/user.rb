@@ -11,7 +11,8 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  PASSWORD_REQ = /\A(?=.{8,})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/x.freeze
+  validates :password, format: PASSWORD_REQ, presence: true, length: { minimum: 8 }
 
   # Returns the hash digest of the given string.
   def self.digest(string)

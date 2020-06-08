@@ -31,6 +31,7 @@ class PasswordResetsController < ApplicationController
       flash[:success] = 'Password has been reset.'
       redirect_to @user
     else
+      flash[:success] = 'Password must have 1 Uppercase, 1 Number, and min. 8 characters.'
       render 'edit'
     end
   end

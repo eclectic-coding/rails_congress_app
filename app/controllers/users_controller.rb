@@ -13,6 +13,7 @@ class UsersController < ApplicationController
       flash[:success] = 'Please check your email to activate your account.'
       redirect_to root_url
     else
+      flash[:danger] = 'Password must have 1 Uppercase, 1 Number, and min. 8 characters.'
       render 'new'
     end
   end
