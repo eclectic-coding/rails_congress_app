@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email
-      flash[:success] = 'Please check your email to activate your account.'
+      flash[:success] = 'Please check your email to activate your account (check your SPAM folder)'
       redirect_to root_url
     else
       flash[:danger] = 'Password must have 1 Uppercase, 1 Number, and min. 8 characters.'
