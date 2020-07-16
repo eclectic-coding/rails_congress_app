@@ -39,7 +39,7 @@
                 %th.px-5.py-3.border-b-2.border-gray-200.bg-gray-100.text-left.text-xs.font-semibold.text-gray-800.uppercase.tracking-wider
                   unfollow
             %tbody
-              - @user_list.each do |list|
+              - @user_list.sort_by(&:last_name).each do |list|
                 %tr
                   %td.px-2.py-2.border-b.border-gray-200.bg-white.text-sm
                     .flex.items-center
