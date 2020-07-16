@@ -58,7 +58,7 @@ Check the Open issues to help.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for details about  the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details about  the process for submitting pull requests to us.
 
 ## Versioning
 
