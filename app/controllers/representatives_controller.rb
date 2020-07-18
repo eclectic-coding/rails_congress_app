@@ -9,4 +9,5 @@ class RepresentativesController < ApplicationController
   def show
     @representative = Member.find_by_member_id(params[:id])
   end
+
 end

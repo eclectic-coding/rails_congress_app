@@ -7,6 +7,7 @@ class FollowListsController < ApplicationController
 
   def edit
     @member = Member.find_by_member_id(params[:id])
+    # binding.pry
     @follow_list = FollowList.find_by_mem_id(params[:id])
 
     if @follow_list.nil?
