@@ -1,6 +1,5 @@
 class SenatorsController < ApplicationController
 
-
   def index
     @senators = Member.where(chamber: 'senate')
                       .order(last_name: :asc)
@@ -8,7 +7,8 @@ class SenatorsController < ApplicationController
   end
 
   def show
-    @senator = Member.find_by(params[member_id: :id])
+    @senator = Member.find_by_member_id(params[:id])
+
   end
 
 end
