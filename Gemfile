@@ -11,6 +11,7 @@ gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'material_design_icons'
 gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg_search'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.3.2', '>= 6.0.3.2'
 gem 'sass-rails', '>= 6'
@@ -44,6 +45,7 @@ group :test do
   gem 'minitest-reporters'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'simplecov', require: false
   gem 'webdrivers'
 end
 
