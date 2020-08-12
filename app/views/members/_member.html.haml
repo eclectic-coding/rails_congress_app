@@ -1,9 +1,9 @@
 
 .text-xl.text-center.no-underline
-  = member.title_and_name
+  = fullname_helper(member)
   .text-gray-700.text-base.text-center
     = fullparty_helper(member.party) + ' - '
-    #{member.state}
+    = member.state
   .text-gray-700.text-base.p-5
     Age:
     = age_helper(member.date_of_birth)
@@ -11,13 +11,13 @@
     Next Election: #{member.next_election}
   .px-5.py-3.border-t.bg-gray-200.flex.justify-around
     - if !member.facebook_account.nil?
-      = link_to member.facebook_account, "aria-label": "#{member.short_title} #{member.last_name}'s Facebook account." do
+      = link_to facebook_helper(member.facebook_account), "aria-label": "#{member.short_title} #{member.last_name}'s Facebook account." do
         %i.fab.fa-facebook.icon{ "aria-hidden": true }
     - if !member.twitter_account.nil?
-      = link_to member.twitter_account, "aria-label": "#{member.short_title} #{member.last_name}'s Twitter account." do
+      = link_to twitter_helper(member.twitter_account), "aria-label": "#{member.short_title} #{member.last_name}'s Twitter account." do
         %i.fab.fa-twitter.icon{ "aria-hidden": true }
     - if !member.youtube_account.nil?
-      = link_to member.youtube_account, "aria-label": "#{member.short_title} #{member.last_name}'s YouTube account." do
+      = link_to youtube_helper(member.youtube_account), "aria-label": "#{member.short_title} #{member.last_name}'s YouTube account." do
         %i.fab.fa-youtube.icon{ "aria-hidden": true }
     - if !member.website.nil?
       = link_to member.website, "aria-label": "#{member.short_title} #{member.last_name}'s website link." do
@@ -25,6 +25,6 @@
     - if !member.contact_form.nil?
       = link_to member.contact_form, "aria-label": "#{member.short_title} #{member.last_name}'s contact form." do
         %i.fas.fa-envelope-open.icon{ "aria-hidden": true }
-    - if !member.phone_clickable.nil?
-      %a{href: "tel:#{member.phone_clickable}", "aria-label": "Call #{member.short_title} #{member.last_name}"}
+    - if !member.phone.nil?
+      %a{"aria-label" => "Call #{member.short_title} #{member.last_name}", :href => "tel: #{phone_helper(member.phone)}"}
         %i.fas.fa-phone-volume.icon{ "aria-hidden": true }

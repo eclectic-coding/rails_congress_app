@@ -5,19 +5,19 @@
     %div{class: "w-full lg:w-2/3 p-4"}
       .inline-grid
         %p.work-sans.font-semibold.text-xl
-          = @representative.title_and_name
+          = fullname_helper(@representative)
         %div.text-normal.text-sm.font-normal
           = fullparty_helper(@representative.party) + ' - '
           #{@representative.state}
         .px-5.py-3.flex.justify-around
           - if !@representative.facebook_account.nil?
-            = link_to @representative.facebook_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Facebook account." do
+            = link_to facebook_helper(@representative.facebook_account), "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Facebook account." do
               %i.fab.fa-facebook.icon{ "aria-hidden": true }
           - if !@representative.twitter_account.nil?
-            = link_to @representative.twitter_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Twitter account." do
+            = link_to twitter_helper(@representative.twitter_account), "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Twitter account." do
               %i.fab.fa-twitter.icon{ "aria-hidden": true }
           - if !@representative.youtube_account.nil?
-            = link_to @representative.youtube_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s YouTube account." do
+            = link_to youtube_helper(@representative.youtube_account), "aria-label": "#{@representative.short_title} #{@representative.last_name}'s YouTube account." do
               %i.fab.fa-youtube.icon{ "aria-hidden": true }
           - if !@representative.website.nil?
             = link_to @representative.website, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s website link." do
@@ -25,8 +25,8 @@
           - if !@representative.contact_form.nil?
             = link_to @representative.contact_form, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s contact form." do
               %i.fas.fa-envelope-open.icon{ "aria-hidden": true }
-          - if !@representative.phone_clickable.nil?
-            %a{href: "tel:#{@representative.phone_clickable}", "aria-label": "Call #{@representative.short_title} #{@representative.last_name}"}
+          - if !@representative.phone.nil?
+            %a{"aria-label" => "Call #{@representative.short_title} #{@representative.last_name}", :href => "tel: #{phone_helper(@representative.phone)}"}
               %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
         %p.raleway.text-sm.my-4
           Age: #{@representative.age} &nbsp; Years in Office: #{@representative.seniority} &nbsp; Next Election: #{@representative.next_election}

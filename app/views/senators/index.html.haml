@@ -9,7 +9,7 @@
           .max-w-sm.rounded-lg.overflow-hidden.shadow-lg.bg-white.m-4
             .flex.flex-col
               = link_to senator_path(member.member_id), "aria-label": "Link to #{member.short_title} #{member.last_name}'s profile page." do
-                =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", alt: "#{member.title_and_name}'s' portrait.", class: "w-full"
+                =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", alt: "#{member.short_title} #{member.last_name}'s' portrait.", class: "w-full"
               = render member
     .mx-auto.my-4
       = will_paginate

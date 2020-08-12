@@ -57,10 +57,6 @@ ActiveRecord::Schema.define(version: 2020_06_04_184612) do
     t.decimal "votes_with_party_pct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "image_url"
-    t.string "state_full_name"
-    t.string "full_name"
-    t.string "title_and_name"
   end
 
   create_table "users", force: :cascade do |t|

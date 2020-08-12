@@ -15,12 +15,9 @@ senators.each do |senator|
     short_title: senator['short_title'],
     first_name: senator['first_name'],
     last_name: senator['last_name'],
-    full_name: '',
-    title_and_name: '',
     date_of_birth: senator['date_of_birth'],
     gender: senator['gender'],
     party: senator['party'],
-    image_url: '',
     twitter_account: senator['twitter_account'],
     facebook_account: senator['facebook_account'],
     youtube_account: senator['youtube_account'],
@@ -30,9 +27,7 @@ senators.each do |senator|
     next_election: senator['next_election'],
     office: senator['office'],
     phone: senator['phone'],
-    phone_clickable: senator['phone_clickable'],
     state: senator['state'],
-    state_full_name: senator['state_full_name'],
     missed_votes_pct: senator['missed_votes_pct'],
     votes_with_party_pct: senator['votes_with_party_pct'],
   )
@@ -54,12 +49,9 @@ representatives.each do |representative|
     short_title: representative['short_title'],
     first_name: representative['first_name'],
     last_name: representative['last_name'],
-    full_name: '',
-    title_and_name: '',
     date_of_birth: representative['date_of_birth'],
     gender: representative['gender'],
     party: representative['party'],
-    image_url: '',
     twitter_account: representative['twitter_account'],
     facebook_account: representative['facebook_account'],
     youtube_account: representative['youtube_account'],
@@ -69,15 +61,8 @@ representatives.each do |representative|
     next_election: representative['next_election'],
     office: representative['office'],
     phone: representative['phone'],
-    phone_clickable: representative['phone_clickable'],
     state: representative['state'],
-    state_full_name: representative['state_full_name'],
     missed_votes_pct: representative['missed_votes_pct'],
     votes_with_party_pct: representative['votes_with_party_pct'],
   )
 end
-
-Member.clickable_phone_number
-Member.set_full_name
-Member.set_title_and_name
-Member.social_media_links

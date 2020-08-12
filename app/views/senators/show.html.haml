@@ -5,19 +5,19 @@
     %div{class: "w-full lg:w-2/3 p-4"}
       .inline-grid
         %p.work-sans.font-semibold.text-xl
-          = @senator.title_and_name
+          = fullname_helper(@senator)
         %div.text-normal.text-sm.font-normal
           = fullparty_helper(@senator.party) + ' - '
           #{@senator.state}
         .px-5.py-3.flex.justify-around
           - if !@senator.facebook_account.nil?
-            = link_to @senator.facebook_account, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Facebook account." do
+            = link_to facebook_helper(@senator.facebook_account), "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Facebook account." do
               %i.fab.fa-facebook.icon{ "aria-hidden": true }
           - if !@senator.twitter_account.nil?
-            = link_to @senator.twitter_account, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Twitter account." do
+            = link_to twitter_helper(@senator.twitter_account), "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Twitter account." do
               %i.fab.fa-twitter.icon{ "aria-hidden": true }
           - if !@senator.youtube_account.nil?
-            = link_to @senator.youtube_account, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s YouTube account." do
+            = link_to youtube_helper(@senator.youtube_account), "aria-label": "#{@senator.short_title} #{@senator.last_name}'s YouTube account." do
               %i.fab.fa-youtube.icon{ "aria-hidden": true }
           - if !@senator.website.nil?
             = link_to @senator.website, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s website link." do
@@ -25,8 +25,8 @@
           - if !@senator.contact_form.nil?
             = link_to @senator.contact_form, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s contact form." do
               %i.fas.fa-envelope-open.icon{ "aria-hidden": true }
-          - if !@senator.phone_clickable.nil?
-            %a{href: "tel:#{@senator.phone_clickable}", "aria-label": "Call #{@senator.short_title} #{@senator.last_name}"}
+          - if !@senator.phone.nil?
+            %a{"aria-label" => "Call #{@senator.short_title} #{@senator.last_name}", :href => "tel: #{phone_helper(@senator.phone)}"}
               %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
         %p.raleway.text-sm.my-4
           Age:
