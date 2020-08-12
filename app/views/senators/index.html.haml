@@ -4,12 +4,40 @@
     %h2.text-center.text-2xl.font-bold.leading-loose.text-indigo-700.pt-8
       Senators
     %div{ class: "grid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2" }
-      - @senators.each do |member|
+      - @senators.each do |senate|
         %div
           .max-w-sm.rounded-lg.overflow-hidden.shadow-lg.bg-white.m-4
             .flex.flex-col
-              = link_to senator_path(member.member_id), "aria-label": "Link to #{member.short_title} #{member.last_name}'s profile page." do
-                =image_tag "https://theunitedstates.io/images/congress/225x275/#{member.member_id}.jpg", alt: "#{member.short_title} #{member.last_name}'s' portrait.", class: "w-full"
-              = render member
-    .mx-auto.my-4
+              = link_to senator_path(senate.member_id), "aria-label": "Link to #{senate.short_title} #{senate.last_name}'s profile page." do
+                =image_tag "https://theunitedstates.io/images/congress/225x275/#{senate.member_id}.jpg", alt: "#{senate.short_title} #{senate.last_name}'s' portrait.", class: "w-full"
+              .text-xl.text-center.no-underline
+                = fullname_helper(senate)
+                .text-gray-700.text-base.text-center
+                  = fullparty_helper(senate.party) + ' - '
+                  = senate.state
+                .text-gray-700.text-base.p-5
+                  Age:
+                  = age_helper(senate.date_of_birth)
+                  %br Years in Office: #{senate.seniority}
+                  Next Election: #{senate.next_election}
+              .px-5.py-3.border-t.bg-gray-200.flex.justify-around
+                - if !senate.facebook_account.nil?
+                  = link_to facebook_helper(senate.facebook_account), "aria-label": "#{senate.short_title} #{senate.last_name}'s Facebook account." do
+                    %i.fab.fa-facebook.icon{ "aria-hidden": true }
+                - if !senate.twitter_account.nil?
+                  = link_to twitter_helper(senate.twitter_account), "aria-label": "#{senate.short_title} #{senate.last_name}'s Twitter account." do
+                    %i.fab.fa-twitter.icon{ "aria-hidden": true }
+                - if !senate.youtube_account.nil?
+                  = link_to youtube_helper(senate.youtube_account), "aria-label": "#{senate.short_title} #{senate.last_name}'s YouTube account." do
+                    %i.fab.fa-youtube.icon{ "aria-hidden": true }
+                - if !senate.website.nil?
+                  = link_to senate.website, "aria-label": "#{senate.short_title} #{senate.last_name}'s website link." do
+                    %i.fas.fa-home.icon{ "aria-hidden": true }
+                - if !senate.contact_form.nil?
+                  = link_to senate.contact_form, "aria-label": "#{senate.short_title} #{senate.last_name}'s contact form." do
+                    %i.fas.fa-envelope-open.icon{ "aria-hidden": true }
+                - if !senate.phone.nil?
+                  %a{"aria-label" => "Call #{senate.short_title} #{senate.last_name}", :href => "tel: #{phone_helper(senate.phone)}"}
+                    %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
+    .mx-auto
       = will_paginate
