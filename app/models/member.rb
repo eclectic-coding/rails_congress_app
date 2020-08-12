@@ -1,16 +1,5 @@
 class Member < ApplicationRecord
 
-  def self.calculate_age
-    Member.all.each do |member|
-      now = Time.now.utc.to_date
-      dob = member.date_of_birth.to_date
-
-      age = now.year - dob.year - (now.month > dob.month || (now.month == dob.month && now.day >= dob.day) ? 0 : 1)
-
-      member.update(age: age)
-    end
-  end
-
   def self.social_media_links
     Member.all.each do |member|
       if member.facebook_account
@@ -96,18 +85,6 @@ class Member < ApplicationRecord
     Member.all.each do |member|
       states.each do |state|
         member.update(state_full_name: state[1]) if member.state == state[0]
-      end
-    end
-  end
-
-  def self.full_party_name
-    Member.all.each do |member|
-      if member.party == 'D'
-        member.update(party_full_name: 'Democrat')
-      elsif member.party == 'R'
-        member.update(party_full_name: 'Republican')
-      elsif member.party == 'ID'
-        member.update(party_full_name: 'Independent')
       end
     end
   end

@@ -17,11 +17,9 @@ senators.each do |senator|
     last_name: senator['last_name'],
     full_name: '',
     title_and_name: '',
-    age: '',
     date_of_birth: senator['date_of_birth'],
     gender: senator['gender'],
     party: senator['party'],
-    party_full_name: '',
     image_url: '',
     twitter_account: senator['twitter_account'],
     facebook_account: senator['facebook_account'],
@@ -59,10 +57,8 @@ representatives.each do |representative|
     full_name: '',
     title_and_name: '',
     date_of_birth: representative['date_of_birth'],
-    age: '',
     gender: representative['gender'],
     party: representative['party'],
-    party_full_name: '',
     image_url: '',
     twitter_account: representative['twitter_account'],
     facebook_account: representative['facebook_account'],
@@ -81,9 +77,6 @@ representatives.each do |representative|
   )
 end
 
-Member.calculate_age
-Member.full_state_name
-Member.full_party_name
 Member.clickable_phone_number
 Member.set_full_name
 Member.set_title_and_name

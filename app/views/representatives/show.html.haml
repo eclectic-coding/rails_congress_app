@@ -7,7 +7,8 @@
         %p.work-sans.font-semibold.text-xl
           = @representative.title_and_name
         %div.text-normal.text-sm.font-normal
-          #{@representative.party_full_name} - #{@representative.state}
+          = fullparty_helper(@representative.party) + ' - '
+          #{@representative.state}
         .px-5.py-3.flex.justify-around
           - if !@representative.facebook_account.nil?
             = link_to @representative.facebook_account, "aria-label": "#{@representative.short_title} #{@representative.last_name}'s Facebook account." do

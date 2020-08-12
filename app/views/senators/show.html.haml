@@ -7,7 +7,8 @@
         %p.work-sans.font-semibold.text-xl
           = @senator.title_and_name
         %div.text-normal.text-sm.font-normal
-          #{@senator.party_full_name} - #{@senator.state}
+          = fullparty_helper(@senator.party) + ' - '
+          #{@senator.state}
         .px-5.py-3.flex.justify-around
           - if !@senator.facebook_account.nil?
             = link_to @senator.facebook_account, "aria-label": "#{@senator.short_title} #{@senator.last_name}'s Facebook account." do
@@ -28,7 +29,9 @@
             %a{href: "tel:#{@senator.phone_clickable}", "aria-label": "Call #{@senator.short_title} #{@senator.last_name}"}
               %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
         %p.raleway.text-sm.my-4
-          Age: #{@senator.age} &nbsp; Years in Office: #{@senator.seniority} &nbsp; Next Election: #{@senator.next_election}
+          Age:
+          = age_helper(@senator.date_of_birth)
+          Years in Office: #{@senator.seniority} &nbsp; Next Election: #{@senator.next_election}
         %div
           - if !@senator.district.nil?
             District: #{@senator.district}

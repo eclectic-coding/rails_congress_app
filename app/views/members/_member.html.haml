@@ -2,9 +2,11 @@
 .text-xl.text-center.no-underline
   = member.title_and_name
   .text-gray-700.text-base.text-center
-    #{member.party_full_name} - #{member.state}
+    = fullparty_helper(member.party) + ' - '
+    #{member.state}
   .text-gray-700.text-base.p-5
-    Age: #{member.age}
+    Age:
+    = age_helper(member.date_of_birth)
     %br Years in Office: #{member.seniority}
     Next Election: #{member.next_election}
   .px-5.py-3.border-t.bg-gray-200.flex.justify-around
