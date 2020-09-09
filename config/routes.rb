@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  # User resource
+  # resources :users
+
   # User validation resources
   resources :account_activations, only: [:edit]
   resources :password_resets, only: %i[new edit create update]

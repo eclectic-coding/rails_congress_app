@@ -50,5 +50,5 @@
             - if !logged_in?
               'Log in to save to a follow list'
             - else
-              =link_to 'Add to Follow List', edit_user_follow_list_path(mem_id: @representative, user_id: current_user[:id])
+              =link_to 'Add to Follow List', edit_follow_list_path(mem_id: @representative, user_id: current_user[:id])
 
