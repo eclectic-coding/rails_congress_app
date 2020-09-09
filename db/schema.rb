@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_164749) do
+ActiveRecord::Schema.define(version: 2020_08_14_205758) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,8 +69,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_164749) do
     t.string "date_of_birth"
     t.string "gender"
     t.string "party"
-    t.string "party_full_name"
-    t.integer "age"
     t.string "twitter_account"
     t.string "facebook_account"
     t.string "youtube_account"
@@ -80,13 +78,13 @@ ActiveRecord::Schema.define(version: 2020_08_12_164749) do
     t.string "next_election"
     t.string "office"
     t.string "phone"
-    t.string "phone_clickable"
     t.string "state"
     t.string "district"
     t.decimal "missed_votes_pct"
     t.decimal "votes_with_party_pct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favorite", default: false
   end
 
   create_table "senators", force: :cascade do |t|
@@ -99,8 +97,6 @@ ActiveRecord::Schema.define(version: 2020_08_12_164749) do
     t.string "date_of_birth"
     t.string "gender"
     t.string "party"
-    t.string "party_full_name"
-    t.integer "age"
     t.string "twitter_account"
     t.string "facebook_account"
     t.string "youtube_account"
@@ -110,13 +106,12 @@ ActiveRecord::Schema.define(version: 2020_08_12_164749) do
     t.string "next_election"
     t.string "office"
     t.string "phone"
-    t.string "phone_clickable"
     t.string "state"
-    t.string "district"
     t.decimal "missed_votes_pct"
     t.decimal "votes_with_party_pct"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "favorite", default: false
   end
 
   create_table "users", force: :cascade do |t|

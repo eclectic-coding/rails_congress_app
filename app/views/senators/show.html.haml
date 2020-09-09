@@ -33,8 +33,6 @@
           = age_helper(@senator.date_of_birth)
           Years in Office: #{@senator.seniority} &nbsp; Next Election: #{@senator.next_election}
         %div
-          - if !@senator.district.nil?
-            District: #{@senator.district}
         %p.font-bold
           Voting Record
         %p

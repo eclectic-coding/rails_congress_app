@@ -29,7 +29,8 @@
             %a{"aria-label" => "Call #{@representative.short_title} #{@representative.last_name}", :href => "tel: #{phone_helper(@representative.phone)}"}
               %i.fas.fa-phone-volume.icon{ "aria-hidden": true }
         %p.raleway.text-sm.my-4
-          Age: #{@representative.age} &nbsp; Years in Office: #{@representative.seniority} &nbsp; Next Election: #{@representative.next_election}
+          Age: #{age_helper(@representative.date_of_birth)} &nbsp;
+          Years in Office: #{@representative.seniority} &nbsp; Next Election: #{@representative.next_election}
         %div
           - if !@representative.district.nil?
             District: #{@representative.district}
