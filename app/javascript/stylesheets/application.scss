@@ -2,6 +2,11 @@
 @import "~tailwindcss/base";
 @import "~tailwindcss/components";
 
+/*! purgecss start ignore */
+@import "./components/buttons";
+@import "components/forms";
+/*! purgecss end ignore */
+
 :root {
   --base-size: 1rem;
   --type-scale: 1.20;
@@ -45,12 +50,6 @@ p {
 
 small, .text-small {
   font-size: var(--text-sm);
-}
-
-.btn {
-  @apply rounded-lg;
-  @apply font-bold text-white;
-  @apply px-8 py-3 mx-2;
 }
 
 .btn-primary {

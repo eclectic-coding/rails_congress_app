@@ -5,11 +5,13 @@ ruby '2.7.1'
 
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'devise'
 gem 'faraday'
 gem 'font-awesome-rails', '~> 4.7'
 gem 'haml-rails', '~> 2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'material_design_icons'
+gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'pg_search'
 gem 'puma', '~> 4.1'
